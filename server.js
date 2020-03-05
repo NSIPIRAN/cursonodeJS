@@ -9,11 +9,10 @@ var app= express();
 app.use( bodyParser.json());
 app.use( bodyParser.urlencoded({extended: false}));
 app.use(router);
+app.use('/app',express.static('public'));
 
 router.get('/message', function(req,res){
     console.log(req.headers)
-    //mandar header como respuesta, ver en insomnia en header
-    //en custom-header
     res.header({
         "custom-header":"Nuestro valor personalizado"
     })
