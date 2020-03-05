@@ -16,7 +16,8 @@ router.post('/message', function(req,res){
 })
 router.delete('/message', function(req,res){
     console.log(req.body);
-    res.send('mensaje eliminado');
+    console.log(req.query);
+    res.send('mensaje eliminado ' + req.body.text + ' correctamente');
 })
 /*app.use('/', function(req, res){
     res.send('hola, este es un servidor serio');
