@@ -1,9 +1,11 @@
 const express = require('express')
+const bodyParser =require('body-parser');
 const router = express.Router();
 var app= express();
 
 app.use(router);
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 router.get('/message', function(req,res){
     res.send('Lista de mensajes');
 })
@@ -12,6 +14,7 @@ router.post('/message', function(req,res){
     res.send('mensajes enviado');
 })
 router.delete('/message', function(req,res){
+    console.log(req.body);
     res.send('mensaje eliminado');
 })
 /*app.use('/', function(req, res){
