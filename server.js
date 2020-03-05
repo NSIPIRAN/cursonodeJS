@@ -1,11 +1,12 @@
-const express = require('express')
-
+const express = require('express');
+const bodyParser = require('body-parser');
 const router = express.Router();
 var app= express();
 
+
+app.use( bodyParser.json());
+app.use( bodyParser.urlencoded({extended: false}));
 app.use(router);
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
 router.get('/message', function(req,res){
     res.send('Lista de mensajes');
 })
